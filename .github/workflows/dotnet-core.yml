@@ -49,21 +49,28 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.301
+        source-url: https://nuget.pkg.github.com/openelt/index.json
+      env:
+          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}   
+              
     - name: Install dependencies
       run: dotnet restore
       working-directory: src
+    
     - name: Build
       run: dotnet build --configuration Release --no-restore
       working-directory: src
+    
     - name: Test
       run: dotnet test --no-restore --verbosity normal
       working-directory: src
+    
     - run: dotnet pack
       working-directory: src/OpenELT.Interfaces
     
-    - run: dotnet nuget add source https://nuget.pkg.github.com/openelt/index.json -n github -u openelt -p ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text
+    #- run: dotnet nuget add source https://nuget.pkg.github.com/openelt/index.json -n github -u openelt -p ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text
     
-    - run: dotnet nuget push "**/*.nupkg" --source "github"
+    - run: dotnet nuget push "**/*.nupkg" --source "github" --skip-duplicate
     
     
     
