@@ -7,7 +7,7 @@ namespace OpenELT.Interfaces
     {
         bool TestConnection();
         IOutputConfiguration Configuration { get; set; }
-        bool Send(IEnumerable<Data> Write);
+        bool Write(IEnumerable<Data> data);
 
     }
 }
