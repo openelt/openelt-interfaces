@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>OpenELT.Interfaces</RootNamespace>
+    <AssemblyName>OpenELT.Interfaces</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <RepositoryUrl>https://github.com/openelt/openelt-core.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Company>OpenELT</Company>
+    <Authors>OpenELT</Authors>
+    <Description>Interface package for plugins and core system.</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/openelt/openelt-core</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
