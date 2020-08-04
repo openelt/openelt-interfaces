@@ -7,13 +7,13 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <RepositoryUrl>https://github.com/openelt/openelt-core.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/openelt/openelt-interfaces.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Company>OpenELT</Company>
     <Authors>OpenELT</Authors>
     <Description>Interface package for plugins and core system.</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageProjectUrl>https://github.com/openelt/openelt-core</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/openelt/openelt-interfaces</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>

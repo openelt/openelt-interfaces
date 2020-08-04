@@ -47,28 +47,28 @@ jobs:
       
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.301
-
-    - run: dotnet nuget add source https://nuget.pkg.github.com/openelt/index.json -n github -u openelt -p ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text
-
+      #with:
+        #3dotnet-version: 3.1.301
+              
     - name: Install dependencies
       run: dotnet restore
       working-directory: src
+    
     - name: Build
       run: dotnet build --configuration Release --no-restore
       working-directory: src
+    
     - name: Test
       run: dotnet test --no-restore --verbosity normal
       working-directory: src
+    
     - run: dotnet pack
       working-directory: src/OpenELT.Interfaces
-      
-    - uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
-      with:
-        nupkg-path:  '**/*.nupkg'
-        repo-owner:  'openelt'
-        gh-user:  'openelt'
-        token:  ${{ secrets.GITHUB_TOKEN }}
+    
+    - run: dotnet nuget add source https://nuget.pkg.github.com/openelt/index.json -n github -u openelt -p ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text
+    
+    - run: dotnet nuget push "**/*.nupkg" --skip-duplicate --source "github" -k ${{ secrets.GITHUB_TOKEN }}
+    
+    
     
  
